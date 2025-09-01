@@ -1,0 +1,33 @@
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+th, td {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ccc;
+  text-align: left;
+}
+
+button {
+  margin-right: 0.5rem;
+  padding: 0.3rem 0.7rem;
+  border: none;
+  background-color: #4a90e2;
+  color: white;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #357ABD;
+}
+
+input[type="text"],
+input[type="email"] {
+  width: 100%;
+  padding: 0.3rem;
+  box-sizing: border-box;
+}
