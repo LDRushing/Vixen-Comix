@@ -7,11 +7,11 @@ dotenv.config(); // ✅ this works with type: "module"
 
 const router = express.Router();
 
-router.post("/", async (req, res) => {
+router.post("/", async (req, res, next) => {
   const { name, email, message } = req.body;
 
   if (!name || !email || !message) {
-    return res.status(400).send("All fields are required");
+    return res.status(400).json({ error: "All fields are required" });
   }
 
   try {
@@ -19,7 +19,7 @@ router.post("/", async (req, res) => {
       service: "gmail",
       auth: {
         user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS, // NOTE: Use an app password for Gmail
+        pass: process.env.EMAIL_PASS, // use app password
       },
     });
 
@@ -30,12 +30,13 @@ router.post("/", async (req, res) => {
       text: message,
     });
 
-    res.status(200).send("Message sent");
+    res.status(200).json({ message: "Message sent" });
   } catch (err) {
-    console.error(err);
-    res.status(500).send("Failed to send email");
+    console.error("Contact form error:", err);
+    next(err); // pass to global error handler
   }
 });
+
 
 export default router;
 

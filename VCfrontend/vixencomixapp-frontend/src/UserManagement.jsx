@@ -1,3 +1,4 @@
+import React from "react";             // ✅ React must be imported
 import { useEffect, useState } from "react";
 import { getUsers, deleteUser, editUser } from "./api";
 import { ToastContainer, toast } from "react-toastify";

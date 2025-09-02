@@ -1,3 +1,4 @@
+import React from "react";             // ✅ React must be imported
 export default function Prints() {
   return (
     <div>

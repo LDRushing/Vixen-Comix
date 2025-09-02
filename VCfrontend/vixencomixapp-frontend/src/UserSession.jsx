@@ -1,3 +1,4 @@
+import React from "react";             // ✅ React must be imported
 import { useEffect, useState } from "react";
 import { getCurrentUser } from "./api";
 

@@ -44,15 +44,32 @@ const createUser = async ({ id, first_name, last_name, email, password, is_admin
 
 // Authenticate user
 const authenticate = async ({ email, password }) => {
-  const SQL = `SELECT id, password FROM useradmin WHERE email = $1`;
+  const SQL = `SELECT * FROM useradmin WHERE email = $1`;
   const response = await client.query(SQL, [email]);
-  if (!response.rows.length || !(await bcrypt.compare(password, response.rows[0].password))) {
-    const error = Error("Not Authorized");
+
+  if (!response.rows.length) {
+    const error = new Error("Not Authorized");
     error.status = 401;
     throw error;
   }
-  const token = jwt.sign({ id: response.rows[0].id }, JWT);
-  return { token };
+
+  const user = response.rows[0];
+
+  const isMatch = await bcrypt.compare(password, user.password);
+  if (!isMatch) {
+    const error = new Error("Not Authorized");
+    error.status = 401;
+    throw error;
+  }
+
+  // Return the full user object
+  return {
+    id: user.id,
+    first_name: user.first_name,
+    last_name: user.last_name,
+    email: user.email,
+    is_admin: user.is_admin,
+  };
 };
 
 // Find user by token

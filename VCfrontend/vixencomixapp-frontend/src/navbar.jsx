@@ -1,3 +1,4 @@
+import React from "react";             // ✅ React must be imported
 import { Link } from 'react-router-dom';
 
 export default function NavBar() {

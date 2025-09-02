@@ -7,17 +7,20 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      // Just in case something tries to reach backend
       '@backend': path.resolve(__dirname, '../vixencomix-backend'),
     },
   },
   server: {
-    fs: {
-      allow: ['.'], // Only allow project root
-      deny: ['../vixencomix-backend'], // ✅ hard deny access to backend
+    port: 5173,
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3000', // backend must match this
+        changeOrigin: true,
+        secure: false,
+      },
     },
   },
   optimizeDeps: {
-    exclude: ['express', 'nodemailer', 'dotenv'], // ✅
+    exclude: ['express', 'nodemailer', 'dotenv'],
   },
 });

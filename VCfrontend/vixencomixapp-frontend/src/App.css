@@ -1,7 +1,10 @@
 body {
   color: #00b16a;
 }
-
+.App {
+  text-align: center;
+  padding: 2rem;
+}
 
 #root {
   max-width: 1280px;

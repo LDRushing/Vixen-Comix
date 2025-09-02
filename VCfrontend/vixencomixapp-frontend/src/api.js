@@ -1,37 +1,47 @@
-const API = import.meta.env.VITE_API_URL;
+const API = import.meta.env.VITE_API_URL; // e.g., http://localhost:3000
 console.log("API URL from .env:", API);
 
-export const registerUser = async (formData) => {
-  const res = await fetch(`${API}/api/auth/register`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(formData),
-  });
-  if (!res.ok) throw new Error("Registration failed");
-  return await res.json();
-};
 
-export const loginUser = async (credentials) => {
-  const res = await fetch(`${API}/api/auth/login`, {
+// Register user
+export async function registerUser(userData) {
+  const res = await fetch("/api/auth/register", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(credentials),
+    body: JSON.stringify(userData),
   });
-  if (!res.ok) throw new Error("Login failed");
-  const data = await res.json();
-  localStorage.setItem("token", data.token); // store JWT
-  return data;
-};
+
+  if (!res.ok) {
+    const error = await res.json();
+    throw new Error(error.error || "Registration failed");
+  }
+
+  return res.json();
+}
+//login user
+export async function loginUser(userData) {
+  const res = await fetch("/api/auth/login", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(userData),
+  });
+
+  if (!res.ok) {
+    const error = await res.json();
+    throw new Error(error.error || "Login failed");
+  }
+
+  return res.json();
+}
 
 export const getUsers = async () => {
   const token = localStorage.getItem("token");
   const res = await fetch(`${API}/api/users`, {
     headers: {
-      Authorization: token,
+      Authorization: `Bearer ${token}`,  // <-- FIX
     },
   });
   if (!res.ok) throw new Error("Access denied");

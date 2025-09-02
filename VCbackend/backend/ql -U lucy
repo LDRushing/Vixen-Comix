@@ -1,0 +1,32 @@
+                                       List of databases
+            Name             |  Owner   | Encoding | Collate |  Ctype  |   Access privileges   
+-----------------------------+----------+----------+---------+---------+-----------------------
+ acme_auth_store_db          | lucy     | UTF8     | C.UTF-8 | C.UTF-8 | 
+ acme_employees_hr_directory | lucy     | UTF8     | C.UTF-8 | C.UTF-8 | 
+ acme_flavors_db             | lucy     | UTF8     | C.UTF-8 | C.UTF-8 | 
+ acme_hr_db                  | lucy     | UTF8     | C.UTF-8 | C.UTF-8 | 
+ acme_hr_directory           | lucy     | UTF8     | C.UTF-8 | C.UTF-8 | 
+ acme_icecream_db            | lucy     | UTF8     | C.UTF-8 | C.UTF-8 | 
+ acme_notes_categories_db    | lucy     | UTF8     | C.UTF-8 | C.UTF-8 | 
+ acme_notes_db               | lucy     | UTF8     | C.UTF-8 | C.UTF-8 | 
+ acme_restaurants_db         | lucy     | UTF8     | C.UTF-8 | C.UTF-8 | 
+ acme_store_db               | lucy     | UTF8     | C.UTF-8 | C.UTF-8 | 
+ acme_stores_db              | lucy     | UTF8     | C.UTF-8 | C.UTF-8 | 
+ acme_vacations_db           | lucy     | UTF8     | C.UTF-8 | C.UTF-8 | 
+ employees                   | lucy     | UTF8     | C.UTF-8 | C.UTF-8 | 
+ lucy                        | postgres | UTF8     | C.UTF-8 | C.UTF-8 | 
+ lucy_new_store_db           | lucy     | UTF8     | C.UTF-8 | C.UTF-8 | 
+ lucy_stores_db              | lucy     | UTF8     | C.UTF-8 | C.UTF-8 | 
+ postgres                    | postgres | UTF8     | C.UTF-8 | C.UTF-8 | 
+ store_db                    | lucy     | UTF8     | C.UTF-8 | C.UTF-8 | 
+ template0                   | postgres | UTF8     | C.UTF-8 | C.UTF-8 | =c/postgres          +
+                             |          |          |         |         | postgres=CTc/postgres
+ template1                   | postgres | UTF8     | C.UTF-8 | C.UTF-8 | =c/postgres          +
+                             |          |          |         |         | postgres=CTc/postgres
+ text_db                     | lucy     | UTF8     | C.UTF-8 | C.UTF-8 | 
+ the_acme_notes_db           | lucy     | UTF8     | C.UTF-8 | C.UTF-8 | 
+ vixen_comix_db              | lucy     | UTF8     | C.UTF-8 | C.UTF-8 | 
+ vixencomix                  | lucy     | UTF8     | C.UTF-8 | C.UTF-8 | 
+ vixencomix_db               | lucy     | UTF8     | C.UTF-8 | C.UTF-8 | 
+(25 rows)
+
