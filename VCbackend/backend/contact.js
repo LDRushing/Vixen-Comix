@@ -1,10 +1,10 @@
 // backend/routes/contact.js
 import express from "express";
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
 import dotenv from "dotenv";
 dotenv.config(); // ✅ this works with type: "module"
 
-
+const resend = new Resend(process.env.RESEND_KEY);
 const router = express.Router();
 
 router.post("/", async (req, res, next) => {
@@ -15,19 +15,12 @@ router.post("/", async (req, res, next) => {
   }
 
   try {
-    const transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS, // use app password
-      },
-    });
-
-    await transporter.sendMail({
-      from: email,
-      to: process.env.EMAIL_USER,
+    await resend.emails.send({
+      from: "faeriecongress@vixencomix.com",
+      to: "rushinglucy@yahoo.com",
+      reply_to: email,
       subject: `New message from ${name}`,
-      text: message,
+      html: `<p><strong>Name:</strong> ${name}</p><p><strong>Email:</strong> ${email}</p><p><strong>Message:</strong></p><p>${message}</p>`,
     });
 
     res.status(200).json({ message: "Message sent" });
@@ -36,7 +29,6 @@ router.post("/", async (req, res, next) => {
     next(err); // pass to global error handler
   }
 });
-
 
 export default router;
 

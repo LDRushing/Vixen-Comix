@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { loginUser } from "./api"; // again, make sure path points to api.js
 
 export default function Login({ onLogin }) {

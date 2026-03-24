@@ -26,8 +26,10 @@ app.use(express.json());
 // ---------------- Auth Middleware ----------------
 const isLoggedIn = async (req, res, next) => {
   try {
-    const token = req.headers.authorization;
-    if (!token) throw new Error("Not authorized");
+    const authHeader = req.headers.authorization;
+    if (!authHeader) throw new Error("Not authorized");
+
+    const token = authHeader.startsWith('Bearer ') ? authHeader.slice(7) : authHeader;
 
     const user = await findUserByToken(token);
     req.user = user;
@@ -117,6 +119,11 @@ app.post("/api/auth/login", async (req, res, next) => {
     console.error("🔥 Login error:", err.message);
     next(err);
   }
+});
+
+// Current user info (requires login)
+app.get("/api/auth/me", isLoggedIn, (req, res) => {
+  res.json({ user: req.user });
 });
 
 // Fetch all users (admin only)

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { registerUser } from "./api"; // make sure the path points to api.js
 
 export default function Register() {

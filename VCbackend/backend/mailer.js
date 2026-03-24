@@ -1,24 +1,17 @@
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
 import dotenv from "dotenv";
 dotenv.config();
 
-const transporter = nodemailer.createTransport({
-  service: "gmail",
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS,
-  },
-});
+const resend = new Resend(process.env.RESEND_KEY);
 
 export const sendMail = async ({ name, email, message }) => {
-  const mailOptions = {
-    from: email,
-    to: process.env.EMAIL_USER,
+  await resend.emails.send({
+    from: "faeriecongress@vixencomix.com",
+    to: "rushinglucy@yahoo.com",
+    reply_to: email,
     subject: `Contact from ${name}`,
-    text: message,
-  };
-
-  await transporter.sendMail(mailOptions);
+    html: `<p><strong>Name:</strong> ${name}</p><p><strong>Email:</strong> ${email}</p><p><strong>Message:</strong></p><p>${message}</p>`,
+  });
 };
 <form onSubmit={handleSubmit} className="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md space-y-4">
   <h2 className="text-2xl font-bold text-violet-800">Contact Me</h2>

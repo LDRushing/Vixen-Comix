@@ -36,7 +36,7 @@ const createUser = async ({ id, first_name, last_name, email, password, is_admin
     last_name,
     email,
     hashedPassword,
-    is_admin || true,
+    is_admin ?? false,
   ]);
   console.log("New user created:", response.rows[0]);
   return response.rows[0];
