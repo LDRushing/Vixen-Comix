@@ -7,7 +7,7 @@ export default function Comics() {
       title: "The Vale of Wales", 
       slug: "vale-of-wales",
       description: "One girl's perilous journey through the Welsh Otherworld, Annwn. Beware the Afanc King...", 
-      image: "/placeholder-comic1.jpg",
+      image: "/5th anniversary.jpg",
       chapters: ["Chapter 1: The Crossing", "Chapter 2: Annwn's Gate", "Chapter 3: The Afanc King"]
     },
     { 
@@ -30,8 +30,37 @@ export default function Comics() {
     <div className="container mx-auto p-6">
       <h2 className="text-3xl font-bold text-center mb-8">Let's Read Some Comics!</h2>
       <p className="text-center mb-8">From monsters to mysteries, we have something for you!</p>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {comics.map((comic, index) => (
+      
+      {/* Special layout for The Vale of Wales */}
+      <div className="vale-of-wales-featured mb-12">
+        <h3 className="text-3xl font-bold mb-6 text-center text-gray-800">The Vale of Wales</h3>
+        <div className="bg-white rounded-lg shadow-md overflow-hidden">
+          <div className="md:flex">
+            <div className="md:w-1/4 p-4 flex justify-center items-center">
+              <img 
+                src="/5th anniversary.jpg" 
+                alt="The Vale of Wales - 5th Anniversary" 
+                className="max-w-full max-h-48 rounded-lg shadow-sm object-contain" 
+              />
+            </div>
+            <div className="md:w-2/3 p-6 flex flex-col justify-center">
+              <p className="text-gray-600 mb-6 leading-relaxed text-lg">
+                One girl's perilous journey through the Welsh Otherworld, Annwn. Beware the Afanc King...
+              </p>
+              <Link 
+                to="/comics/vale-of-wales" 
+                className="inline-block bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-purple-700 transition duration-200 self-start"
+              >
+                Read Now
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Other comics in grid layout */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {comics.slice(1).map((comic, index) => (
           <div key={index} className="bg-white rounded-lg shadow-md p-4">
             <img src={comic.image} alt="Comic cover" className="w-full h-48 object-cover rounded mb-4" />
             <h3 className="text-xl font-semibold mb-2">{comic.title}</h3>

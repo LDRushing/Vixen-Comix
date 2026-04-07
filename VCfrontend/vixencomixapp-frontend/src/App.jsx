@@ -62,28 +62,32 @@ function App() {
   return (
     <Router>
       <div className="min-h-screen bg-gray-100">
-        <header className="bg-purple-800 text-white p-4">
-          <h1 className="text-3xl font-bold text-center">Welcome to Vixen Comix! 🦊</h1>
+        <header className="art-header relative overflow-hidden">
+          <div className="header-content relative z-10 text-center py-8 px-4">
+            <h1 className="text-4xl font-bold text-white drop-shadow-lg"></h1>
+          </div>
         </header>
         <nav className="bg-purple-600 text-white p-4">
-          <div className="container mx-auto flex justify-center space-x-4">
-            <Link to="/" className="hover:underline">Home</Link>
-            <Link to="/bio" className="hover:underline">Bio</Link>
-            <Link to="/comics" className="hover:underline">Comics</Link>
-            <Link to="/prints" className="hover:underline">Prints</Link>
-            <Link to="/film" className="hover:underline">Film</Link>
-            <Link to="/contact" className="hover:underline">Contact</Link>
+          <div className="container mx-auto">
+            <div className="flex justify-center space-x-4 mb-4">
+              <Link to="/" className="hover:underline">Home</Link>
+              <Link to="/bio" className="hover:underline">Bio</Link>
+              <Link to="/comics" className="hover:underline">Comics</Link>
+              <Link to="/prints" className="hover:underline">Prints</Link>
+              <Link to="/film" className="hover:underline">Film</Link>
+              <Link to="/contact" className="hover:underline">Contact</Link>
+            </div>
             {!isLoggedIn && (
-              <>
-                <Link to="/login" className="hover:underline">Login</Link>
-                <Link to="/register" className="hover:underline">Register</Link>
-              </>
+              <div className="flex flex-col items-center space-y-2">
+                <Link to="/login" className="hover:underline bg-purple-700 px-4 py-2 rounded">Login</Link>
+                <Link to="/register" className="hover:underline bg-purple-700 px-4 py-2 rounded">Register</Link>
+              </div>
             )}
             {isLoggedIn && isAdmin && (
-              <>
+              <div className="flex justify-center space-x-4">
                 <Link to="/dashboard" className="hover:underline">Dashboard</Link>
                 <Link to="/users" className="hover:underline">Manage Users</Link>
-              </>
+              </div>
             )}
           </div>
         </nav>
@@ -125,15 +129,15 @@ function App() {
 
         <ToastContainer position="top-right" autoClose={3000} />
 
-        <footer className="site-footer bg-gray-100 text-center border-t border-gray-300 py-12">
-          <div className="container mx-auto px-4">
-            <p className="text-gray-600 mb-6">
-              Social links coming soon — decorate this footer with art, icons, and media badges.
+        <footer className="art-footer relative overflow-hidden bg-gray-50">
+          <div className="footer-content relative z-10 text-center py-8 px-4">
+            <p className="text-gray-700 mb-4 text-sm">
+              Follow Vixen Comix for updates and new releases
             </p>
             <div className="flex flex-wrap justify-center items-center gap-4">
-              <div className="h-20 w-20 rounded-xl bg-white shadow-sm" />
-              <div className="h-20 w-20 rounded-xl bg-white shadow-sm" />
-              <div className="h-20 w-20 rounded-xl bg-white shadow-sm" />
+              <div className="social-placeholder h-12 w-12 rounded-full bg-white shadow-md border-2 border-gray-200" />
+              <div className="social-placeholder h-12 w-12 rounded-full bg-white shadow-md border-2 border-gray-200" />
+              <div className="social-placeholder h-12 w-12 rounded-full bg-white shadow-md border-2 border-gray-200" />
             </div>
           </div>
         </footer>
