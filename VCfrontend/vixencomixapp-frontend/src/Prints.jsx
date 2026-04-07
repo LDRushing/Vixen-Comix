@@ -1,10 +1,9 @@
-import React from "react";
-
 export default function Prints() {
   const prints = [
-    { title: "Vixen Portrait", description: "A stunning illustration of Vixen.", image: "/placeholder-print1.jpg", price: "$15" },
-    { title: "Monster Sketch", description: "Hand-drawn monster artwork.", image: "/placeholder-print2.jpg", price: "$20" },
-    { title: "Mystery Scene", description: "Atmospheric mystery illustration.", image: "/placeholder-print3.jpg", price: "$18" },
+    {
+      title: "Prints Coming Soon!"
+    }
+    // { title: "Prints coming soon!", description: "N/A", image: "/placeholder-print1.jpg", price: "$15" }
   ];
 
   return (
@@ -18,7 +17,7 @@ export default function Prints() {
             <h3 className="text-xl font-semibold mb-2">{print.title}</h3>
             <p className="text-gray-600 mb-2">{print.description}</p>
             <p className="text-lg font-bold text-purple-600">{print.price}</p>
-            <button className="mt-4 bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Buy Now</button>
+            <button className="mt-4 bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Store Coming Soon</button>
           </div>
         ))}
       </div>

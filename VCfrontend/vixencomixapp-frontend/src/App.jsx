@@ -13,6 +13,7 @@ import Register from "./Register";
 import AdminDashboard from "./AdminDashboard";
 import UserSession from "./UserSession";
 import UserManagement from "./UserManagement";
+import VOWprologue from "./VOWprologue";
 import { getCurrentUser } from "./api";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -95,6 +96,7 @@ function App() {
             <Route path="/bio" element={<Bio />} />
             <Route path="/comics" element={<Comics />} />
             <Route path="/comics/:slug" element={<ComicTOC />} />
+            <Route path="/comics/:slug/chapter/:chapter" element={<VOWprologue />} />
             <Route path="/prints" element={<Prints />} />
             <Route path="/film" element={<Film />} />
             <Route path="/contact" element={<Contact />} />
@@ -122,6 +124,19 @@ function App() {
         </main>
 
         <ToastContainer position="top-right" autoClose={3000} />
+
+        <footer className="site-footer bg-gray-100 text-center border-t border-gray-300 py-12">
+          <div className="container mx-auto px-4">
+            <p className="text-gray-600 mb-6">
+              Social links coming soon — decorate this footer with art, icons, and media badges.
+            </p>
+            <div className="flex flex-wrap justify-center items-center gap-4">
+              <div className="h-20 w-20 rounded-xl bg-white shadow-sm" />
+              <div className="h-20 w-20 rounded-xl bg-white shadow-sm" />
+              <div className="h-20 w-20 rounded-xl bg-white shadow-sm" />
+            </div>
+          </div>
+        </footer>
       </div>
     </Router>
   );

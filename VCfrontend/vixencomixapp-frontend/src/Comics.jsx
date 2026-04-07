@@ -33,7 +33,7 @@ export default function Comics() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {comics.map((comic, index) => (
           <div key={index} className="bg-white rounded-lg shadow-md p-4">
-            <img src={comic.image} alt={comic.title} className="w-full h-48 object-cover rounded mb-4" />
+            <img src={comic.image} alt="Comic cover" className="w-full h-48 object-cover rounded mb-4" />
             <h3 className="text-xl font-semibold mb-2">{comic.title}</h3>
             <p className="text-gray-600">{comic.description}</p>
             <Link to={`/comics/${comic.slug}`} className="mt-4 inline-block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Read Now</Link>
