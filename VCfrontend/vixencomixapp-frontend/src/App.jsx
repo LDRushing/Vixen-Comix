@@ -134,7 +134,7 @@ function App() {
   <div className="flex flex-wrap justify-center items-center gap-10"> {/* Increased gap to 10 for more space */}
   
   <a 
-    href="https://bsky.app/profile/your-handle" 
+    href="https://bsky.app/profile/vixencomix.bsky.social" 
     target="_blank" 
     rel="noopener noreferrer" 
     className="social-placeholder flex items-center justify-center h-14 w-14 rounded-full bg-white shadow-lg border-2 border-gray-100 text-blue-500 hover:text-blue-600 hover:scale-110 transition-all"
@@ -144,7 +144,7 @@ function App() {
   </a>
   
   <a 
-    href="https://twitter.com/your-handle" 
+    href="https://twitter.com/vixencomix" 
     target="_blank" 
     rel="noopener noreferrer" 
     className="social-placeholder flex items-center justify-center h-14 w-14 rounded-full bg-white shadow-lg border-2 border-gray-100 text-black hover:text-gray-700 hover:scale-110 transition-all"
@@ -154,7 +154,7 @@ function App() {
   </a>
   
   <a 
-    href="https://instagram.com/your-handle" 
+    href="https://instagram.com/vixencomix816" 
     target="_blank" 
     rel="noopener noreferrer" 
     className="social-placeholder flex items-center justify-center h-14 w-14 rounded-full bg-white shadow-lg border-2 border-gray-100 text-pink-600 hover:text-pink-700 hover:scale-110 transition-all"
