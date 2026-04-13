@@ -15,7 +15,9 @@ body {
 
 .art-header {
   min-height: 300px;
-  background-image: url('/header-art.jpg');
+  margin-top: 0;
+  padding-top: 1px;
+  background-image: url('/4th anniversary printWout Amanda.jpg');
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
@@ -40,14 +42,16 @@ body {
 
 nav {
   display: flex;
-  gap: 1rem;
+  gap: 2rem;
   justify-content: center;
-  margin-bottom: 2rem;
+  /* This creates the "noticeable space" below the header image */
+  font-family: 'Lucida Handwriting', cursive, sans-serif;
+  margin-top: 1rem; 
+  margin-bottom: 1rem;
   flex-wrap: wrap;
 }
-
 nav a {
-  color: #00b16a;
+  color: #007345;
   text-decoration: none;
   padding: 0.5rem 1rem;
   border-radius: 4px;
@@ -93,6 +97,7 @@ nav a:hover {
 .home-hero {
   padding: 2rem;
   text-align: center;
+  font-family: 'Lucida Handwriting', cursive, sans-serif;
   background-color: #f9f9f9;
   border-radius: 8px;
   margin: 2rem 0;
@@ -103,11 +108,7 @@ nav a:hover {
   margin: 0 auto;
   padding: 2rem;
 }
-. flex-shrink-0 w-32 {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem;
-}
+
 .bio-content {
   display: flex;
   gap: 2rem;
