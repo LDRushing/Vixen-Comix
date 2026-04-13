@@ -18,6 +18,7 @@ import { getCurrentUser } from "./api";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import "./App.css";
+import { SiBluesky, SiX, SiInstagram } from "react-icons/si";
 
 function App() {
   const [token, setToken] = useState(localStorage.getItem("token") || "");
@@ -129,18 +130,40 @@ function App() {
 
         <ToastContainer position="top-right" autoClose={3000} />
 
-        <footer className="art-footer relative overflow-hidden bg-gray-50">
-          <div className="footer-content relative z-10 text-center py-8 px-4">
-            <p className="text-gray-700 mb-4 text-sm">
-              Follow Vixen Comix for updates and new releases
-            </p>
-            <div className="flex flex-wrap justify-center items-center gap-4">
-              <div className="social-placeholder h-12 w-12 rounded-full bg-white shadow-md border-2 border-gray-200" />
-              <div className="social-placeholder h-12 w-12 rounded-full bg-white shadow-md border-2 border-gray-200" />
-              <div className="social-placeholder h-12 w-12 rounded-full bg-white shadow-md border-2 border-gray-200" />
-            </div>
-          </div>
-        </footer>
+     <footer className="art-footer relative overflow-hidden bg-white border-t bg-gray-50">
+  <div className="flex flex-wrap justify-center items-center gap-10"> {/* Increased gap to 10 for more space */}
+  
+  <a 
+    href="https://bsky.app/profile/your-handle" 
+    target="_blank" 
+    rel="noopener noreferrer" 
+    className="social-placeholder flex items-center justify-center h-14 w-14 rounded-full bg-white shadow-lg border-2 border-gray-100 text-blue-500 hover:text-blue-600 hover:scale-110 transition-all"
+    aria-label="BlueSky"
+  >
+    <SiBluesky size={28} />
+  </a>
+  
+  <a 
+    href="https://twitter.com/your-handle" 
+    target="_blank" 
+    rel="noopener noreferrer" 
+    className="social-placeholder flex items-center justify-center h-14 w-14 rounded-full bg-white shadow-lg border-2 border-gray-100 text-black hover:text-gray-700 hover:scale-110 transition-all"
+    aria-label="Twitter/X"
+  >
+    <SiX size={24} />
+  </a>
+  
+  <a 
+    href="https://instagram.com/your-handle" 
+    target="_blank" 
+    rel="noopener noreferrer" 
+    className="social-placeholder flex items-center justify-center h-14 w-14 rounded-full bg-white shadow-lg border-2 border-gray-100 text-pink-600 hover:text-pink-700 hover:scale-110 transition-all"
+    aria-label="Instagram"
+  >
+    <SiInstagram size={28} />
+  </a>
+</div>
+</footer>
       </div>
     </Router>
   );
