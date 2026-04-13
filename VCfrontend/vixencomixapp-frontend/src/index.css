@@ -1,12 +1,9 @@
-/* * @tailwind base;
-@tailwind components;
-@tailwind utilities; */ */
 /* html, body {
   margin: 0;
   padding: 0;
   border: 0;
   overflow-x: hidden; /* Prevents unwanted horizontal scrolling */
-} */
+ */
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -80,4 +77,28 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities;  */
+.social-container {
+  display: flex !important;
+  justify-content: center !important;
+  gap: 60px !important; /* This creates the wide spread */
+  padding: 40px 0;
+  position: relative;
+  z-index: 20; /* Ensures they sit above the gradient */
+}
+
+.social-container a {
+  color: #006b40 !important; /* Your Dark Green */
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.social-container a:hover {
+  color: #008f56 !important; /* Lighter green on hover */
+  transform: scale(1.2);
 }

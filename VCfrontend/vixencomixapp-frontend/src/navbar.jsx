@@ -9,8 +9,8 @@ export default function NavBar() {
       <Link to="/prints">Prints</Link>
       <Link to="/film">Film Project</Link>
       <Link to="/contact">Contact</Link>
-      <Link to="/login">Login</Link>
       <Link to="/register">Register</Link>
+      <Link to="/login">Login</Link>
     </nav>
   );
 }

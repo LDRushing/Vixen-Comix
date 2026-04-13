@@ -25,7 +25,36 @@ export default function UserManagement() {
       setError("");
     } catch (err) {
       setError(err.message);
+      // Inside your loadUsers function, you might want to join progress data 
+// on the backend so 'data' includes a 'last_read' field.
+
+      <>
+        // Inside your loadUsers function, I might want to join progress data 
+        // on the backend so 'data' includes a 'last_read' field.
+        <thead>
+          <tr>
+            <th style={thStyle}>First Name</th>
+            <th style={thStyle}>Last Name</th>
+            <th style={thStyle}>Email</th>
+            <th style={thStyle}>Last Activity</th> {/* New Column */}
+            <th style={thStyle}>Admin?</th>
+            <th style={thStyle}>Actions</th>
+          </tr>
+        </thead><tbody>
+          {users.map((user) => (
+            <tr key={user.id}>
+              <td style={tdStyle}>{user.first_name}</td>
+              <td style={tdStyle}>{user.last_name}</td>
+              <td style={tdStyle}>{user.email}</td>
+              <td style={tdStyle}>
+                {user.last_read_comic ? `${user.last_read_comic} (Ch. ${user.last_chapter})` : "No activity"}
+              </td>
+              {/* ... rest of your code */}
+            </tr>
+          ))}
+        </tbody></>
     }
+    
   };
 
   useEffect(() => {

@@ -18,6 +18,7 @@ body {
   margin-top: 0;
   padding-top: 1px;
   background-image: url('/4th anniversary printWout Amanda.jpg');
+  font-family: 'Lucida Handwriting', 'Apple Chancery', 'Segoe Script', cursive;
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
@@ -97,7 +98,7 @@ nav a:hover {
 .home-hero {
   padding: 2rem;
   text-align: center;
-  font-family: 'Lucida Handwriting', cursive, sans-serif;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   background-color: #f9f9f9;
   border-radius: 8px;
   margin: 2rem 0;
@@ -148,35 +149,122 @@ nav a:hover {
     max-width: 250px;
   }
 }
-
-.art-footer {
-  min-height: 200px;
-  background-size: cover;
-  background-position: center bottom;
-  background-repeat: no-repeat;
-  position: relative;
-}
-
-.art-footer::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
-  z-index: 1;
-}
-
+/* 1. Center the footer content */
 .footer-content {
-  position: relative;
-  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 0;
 }
 
-.social-placeholder {
-  transition: transform 0.3s ease;
+/* 2. THE FIX: Force the icons into a green, horizontal, spaced-out row */
+.vixen-social-row {
+  display: flex !important;
+  flex-direction: row !important; /* Forces side-by-side */
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 48px !important; /* Creates the organized separation */
+  margin: 20px 0;
+  width: 100%;
 }
 
-.social-placeholder:hover {
+/* 3. Force the green color and remove blue link defaults */
+.vixen-social-row a {
+  color: #006b40 !important; /* Signature Vixen Green */
+  text-decoration: none !important;
+  display: flex;
+  transition: transform 0.2s ease-in-out;
+}
+
+.vixen-social-row a:hover {
   transform: scale(1.1);
+  color: #008f56 !important; /* Slightly lighter green on hover */
+}
+
+/* 4. Text styling for footer */
+.footer-text {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.copyright-text {
+  color: #999;
+  font-size: 12px;
+  margin-top: 16px;
+}
+.film-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+.indented-paragraph {
+  text-indent: 40px; /* Adjust this number to make the indent deeper or shallower */
+  margin-bottom: 1.5rem;
+  text-align: justify; /* This makes the paragraphs look like a published book */
+}
+
+.film-container h3 {
+  text-align: center;
+  color: #006b40; /* Using your Vixen Green */
+  margin-bottom: 2rem;
+}
+/* Styling for each Nav Link */
+.nav-button {
+  padding: 10px 20px;
+  border: 2px solid rgb(255, 255, 255); /* subtle white-transparent border */
+  background-color: rgba(88, 28, 135, 0.4);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  display: inline-block;
+  backdrop-filter: blue(4px);
+}
+
+/* The "Pop" on Hover */
+.nav-button:hover {
+  background-color: rgb(78, 0, 96);
+  border-color: #007e4e; /* This gives it a bright green "pop" when hovering */
+  color: #b4dcff;
+  transform: translateY(-2px); /* Slight lift effect */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Optional: Make the "My Reading" button stand out even more */
+.special-nav {
+  border-color: #008c56 !important; /* Always green border */
+  font-weight: bold;
+  margin-left: 20px;
+}
+/* Space out the Admin buttons so they aren't squished */
+.admin-nav {
+  margin: 0 5px !important; /* Adds breathing room on both sides */
+  border-color: #008f56 !important; /* Vixen Green border for Admin */
+  background-color: rgba(0, 143, 86, 0.2) !important; /* Transparent green fill */
+}
+
+/* Give the Logout button a distinct "Warning" feel */
+.logout-button {
+  margin-left: 10px !important;
+  border-color: #ef4444 !important; /* Red border */
+  background-color: rgba(239, 68, 68, 0.2) !important;
+}
+
+.logout-button:hover {
+  background-color: #ef4444 !important;
+  color: white !important;
+  border-color: white !important;
+}
+
+/* Fix for the "My Reading" separator */
+.special-nav {
+  margin-left: 15px !important; /* Keeps the gap consistent */
+  border-left: 2px solid rgba(255, 255, 255, 0.5) !important; 
+  padding-left: 20px !important;
 }
