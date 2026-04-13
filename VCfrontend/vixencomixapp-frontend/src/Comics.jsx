@@ -35,15 +35,15 @@ export default function Comics() {
       <div className="vale-of-wales-featured mb-12">
         <h3 className="text-3xl font-bold mb-6 text-center text-gray-800">The Vale of Wales</h3>
         <div className="bg-white rounded-lg shadow-md overflow-hidden">
-          <div className="md:flex">
-            <div className="md:w-1/4 p-4 flex justify-center items-center">
+          <div className="flex gap-6 p-6 items-start">
+            <div className="flex-shrink-0 w-32">
               <img 
-                src="/5th anniversary.jpg" 
+                src="/5th anniversary300.jpg" 
                 alt="The Vale of Wales - 5th Anniversary" 
-                className="max-w-full max-h-48 rounded-lg shadow-sm object-contain" 
+                className="w-full max-h-32 h-auto rounded-lg shadow-sm object-contain" 
               />
             </div>
-            <div className="md:w-2/3 p-6 flex flex-col justify-center">
+            <div className="flex-1">
               <p className="text-gray-600 mb-6 leading-relaxed text-lg">
                 One girl's perilous journey through the Welsh Otherworld, Annwn. Beware the Afanc King...
               </p>

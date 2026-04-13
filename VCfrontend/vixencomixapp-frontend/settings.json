@@ -1,0 +1,6 @@
+{
+    "image-editor.quality": 80,
+    "image-editor.overwrite-original": true,
+    "image-editor.save-limit": 15,
+    "image-editor.webp-delete-original": true,
+}
