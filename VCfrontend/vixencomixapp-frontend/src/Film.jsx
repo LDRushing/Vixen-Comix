@@ -6,7 +6,7 @@ export default function Film() {
       <h3 className="film-header">The Vale of Wales is getting animated!</h3>
       
       <p className="indented-paragraph">
-        On August 19th, 2019, The Vale of Wales was firstly posted on vowcomic.tumblr.com, 
+        On August 19th, 2019, The Vale of Wales was firstly posted on <a href="vowcomic.tumblr.com">vowcomic.tumblr.com</a>, 
         starting a journey still ongoing at 6 years and counting. Despite a small audience, 
         Vixen Comix wants to turn Amanda, Lili, Sal, and Vera into hand-drawn human-animated characters!
       </p>

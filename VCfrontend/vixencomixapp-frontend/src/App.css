@@ -1,7 +1,16 @@
-body {
-  color: #008f56;
-  margin: 0;
-  padding: 0;
+body, p, div {
+  color: #006b40
+  /* margin: 0;
+  padding: 0; */
+}
+.logo-yellow {
+  color: #ffe37d; /* A bright, eye-catching yellow */
+  font-family: 'Lucida Handwriting', cursive;
+  text-transform: none; /* Keeps the logo in title case, which looks better for cursive fonts */
+  text-shadow: 2px 4px 8px rgba(0, 0, 0, 0.5); /* Adds a shadow to make it pop against the art */
+}
+.header-content p {
+  color: #006b40;
 }
 .App {
   text-align: center;
@@ -13,10 +22,14 @@ body {
   text-align: center;
 }
 
+/* Updated Art Header to handle centering */
 .art-header {
   min-height: 300px;
+  display: flex;             /* Added */
+  align-items: center;       /* Centers vertically */
+  justify-content: center;    /* Centers horizontally */
   margin-top: 0;
-  padding-top: 1px;
+  padding-top: 0;            /* Removed the 1px padding */
   background-image: url('/4th anniversary printWout Amanda.jpg');
   font-family: 'Lucida Handwriting', 'Apple Chancery', 'Segoe Script', cursive;
   background-size: cover;
@@ -25,20 +38,18 @@ body {
   position: relative;
 }
 
-.art-header::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.05));
-  z-index: 1;
+/* Make the logo text much larger and bolder */
+.header-content h1 {
+  font-size: 5rem !important; /* Increased from text-4xl (~2.25rem) to 5rem */
+  margin: 0;
+  line-height: 1;
+  text-shadow: 2px 4px 8px rgba(0, 0, 0, 0.5); /* Makes it pop against the art */
 }
 
-.header-content {
-  position: relative;
-  z-index: 10;
+/* Ensure the link inside takes the full font size */
+.header-content h1 a {
+  font-family: 'Lucida Handwriting', cursive;
+  text-transform: none; /* Looks better in title case for cursive */
 }
 
 nav {

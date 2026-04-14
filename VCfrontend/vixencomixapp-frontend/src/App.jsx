@@ -69,10 +69,11 @@ function App() {
         {/* Header Section */}
         <header className="art-header relative overflow-hidden">
           <div className="header-content relative z-10 text-center py-8 px-4">
-            <h1 className="text-4xl font-bold text-white drop-shadow-lg uppercase tracking-wider">
-              <Link to="/" className="text-white no-underline hover:opacity-90 transition">
+            <h1 className="font-bold drop-shadow-lg tracking-wider">
+              {/* FIXED: Span is now properly closed and 'to' attribute removed */}
+              <span className="logo-yellow">
                 Vixen Comix
-              </Link>
+              </span>
             </h1>
           </div>
         </header>
@@ -81,7 +82,7 @@ function App() {
         <nav className="bg-purple-600 text-white p-4 shadow-lg">
           <div className="container mx-auto">
             
-            {/* Row 1: Main Site Links with horizontal spacing */}
+            {/* Row 1: Main Site Links */}
             <div className="flex justify-center gap-6 mb-4 font-medium flex-wrap items-center">
               <Link to="/" className="nav-button">Home</Link>
               <Link to="/bio" className="nav-button">Bio</Link>
@@ -97,7 +98,7 @@ function App() {
               )}
             </div>
 
-            {/* Row 2: Auth and Admin Actions with vertical spacing and separator */}
+            {/* Row 2: Auth and Admin Actions */}
             <div className="flex justify-center gap-4 items-center flex-wrap mt-6 pt-4 border-t border-purple-500/30">
               {!isLoggedIn ? (
                 <>
@@ -124,8 +125,6 @@ function App() {
             </div>
           </div>
         </nav>
-
-        {/* {isLoggedIn && <UserSession onLogout={handleLogout} />} */}
 
         {/* Main Content Area */}
         <main className="container mx-auto p-6 flex-grow">
