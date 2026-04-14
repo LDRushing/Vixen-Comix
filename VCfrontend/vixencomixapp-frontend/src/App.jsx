@@ -17,7 +17,6 @@ import Login from "./Login";
 import Register from "./Register";
 import AdminDashboard from "./AdminDashboard";
 import UserHome from "./UserHome";
-import UserSession from "./UserSession";
 import UserManagement from "./UserManagement";
 import VOWprologue from "./VOWprologue";
 import { getCurrentUser } from "./api";
@@ -70,27 +69,23 @@ function App() {
         <header className="art-header relative overflow-hidden">
           <div className="header-content relative z-10 text-center py-8 px-4">
             <h1 className="font-bold drop-shadow-lg tracking-wider">
-              {/* FIXED: Span is now properly closed and 'to' attribute removed */}
-              <span className="logo-yellow">
-                Vixen Comix
-              </span>
+              <span className="logo-yellow">Vixen Comix</span>
             </h1>
           </div>
         </header>
 
         {/* Navigation Section */}
-        <nav className="bg-purple-600 text-white p-4 shadow-lg">
-          <div className="container mx-auto">
-            
-            {/* Row 1: Main Site Links */}
-            <div className="flex justify-center gap-6 mb-4 font-medium flex-wrap items-center">
+        <nav className="vixen-nav-main shadow-lg">
+          <div className="w-full px-8">
+            {/* Row 1: Main Site Links - REMOVED gap-6 TO LET CSS WORK */}
+            <div className="nav-row-links flex justify-center mb-4 font-medium flex-wrap items-center">
               <Link to="/" className="nav-button">Home</Link>
               <Link to="/bio" className="nav-button">Bio</Link>
               <Link to="/comics" className="nav-button">Comics</Link>
               <Link to="/prints" className="nav-button">Prints</Link>
               <Link to="/film" className="nav-button">Film</Link>
               <Link to="/contact" className="nav-button">Contact</Link>
-              
+
               {isLoggedIn && (
                 <Link to="/home" className="nav-button special-nav">
                   My Reading
@@ -109,12 +104,8 @@ function App() {
                 <>
                   {isAdmin && (
                     <>
-                      <Link to="/dashboard" className="nav-button admin-nav">
-                        Admin Dashboard
-                      </Link>
-                      <Link to="/users" className="nav-button admin-nav">
-                        Manage Users
-                      </Link>
+                      <Link to="/dashboard" className="nav-button admin-nav">Admin Dashboard</Link>
+                      <Link to="/users" className="nav-button admin-nav">Manage Users</Link>
                     </>
                   )}
                   <button onClick={handleLogout} className="nav-button logout-button">
@@ -130,18 +121,9 @@ function App() {
         <main className="container mx-auto p-6 flex-grow">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route
-              path="/login"
-              element={isLoggedIn ? <Navigate to="/home" /> : <Login onLogin={handleLogin} />}
-            />
-            <Route
-              path="/register"
-              element={isLoggedIn ? <Navigate to="/home" /> : <Register />}
-            />
-            <Route
-              path="/home"
-              element={isLoggedIn ? <UserHome user={currentUser} /> : <Navigate to="/login" />}
-            />
+            <Route path="/login" element={isLoggedIn ? <Navigate to="/home" /> : <Login onLogin={handleLogin} />} />
+            <Route path="/register" element={isLoggedIn ? <Navigate to="/home" /> : <Register />} />
+            <Route path="/home" element={isLoggedIn ? <UserHome user={currentUser} /> : <Navigate to="/login" />} />
             <Route path="/bio" element={<Bio />} />
             <Route path="/comics" element={<Comics />} />
             <Route path="/comics/:slug" element={<ComicTOC />} />
@@ -149,14 +131,8 @@ function App() {
             <Route path="/prints" element={<Prints />} />
             <Route path="/film" element={<Film />} />
             <Route path="/contact" element={<Contact />} />
-            <Route
-              path="/dashboard"
-              element={isAdmin ? <AdminDashboard /> : <Navigate to="/home" />}
-            />
-            <Route
-              path="/users"
-              element={isAdmin ? <UserManagement /> : <Navigate to="/home" />}
-            />
+            <Route path="/dashboard" element={isAdmin ? <AdminDashboard /> : <Navigate to="/home" />} />
+            <Route path="/users" element={isAdmin ? <UserManagement /> : <Navigate to="/home" />} />
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
         </main>
@@ -168,15 +144,9 @@ function App() {
           <div className="footer-content py-10">
             <p className="footer-text">Follow Vixen Comix for updates and new releases</p>
             <div className="vixen-social-row">
-              <a href="https://bsky.app/profile/vixencomix.bsky.social" target="_blank" rel="noreferrer">
-                <SiBluesky size={35} />
-              </a>
-              <a href="https://twitter.com/vixencomix" target="_blank" rel="noreferrer">
-                <SiX size={30} />
-              </a>
-              <a href="https://instagram.com/vixencomix816" target="_blank" rel="noreferrer">
-                <SiInstagram size={35} />
-              </a>
+              <a href="https://bsky.app/profile/vixencomix.bsky.social" target="_blank" rel="noreferrer"><SiBluesky size={35} /></a>
+              <a href="https://twitter.com/vixencomix" target="_blank" rel="noreferrer"><SiX size={30} /></a>
+              <a href="https://instagram.com/vixencomix816" target="_blank" rel="noreferrer"><SiInstagram size={35} /></a>
             </div>
             <p className="copyright-text">© 2026 Vixen Comix</p>
           </div>

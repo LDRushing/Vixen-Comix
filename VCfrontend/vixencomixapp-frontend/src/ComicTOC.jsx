@@ -10,7 +10,7 @@ export default function ComicTOC() {
       slug: "vale-of-wales",
       description: "One girl's perilous journey through the Welsh Otherworld, Annwn. Beware the Afanc King...",
       image: "/placeholder-comic1.jpg",
-      chapters: ["Prologue", "Chapter 1", "Chapter 2", "Chapter 3", "Chapter 4", "Chapter 5", "Chapter 6", "Chapter 7", "Chapter 8", "Chapter 9", "Chapter 10", "Chapter 11", "Chapter 12", "Chapter 13", "Chapter 14", "Chapter 15", "Chapter 16", "Chapter 17", "Chapter 18", "Chapter 19", "Chapter 20", "Chapter 21", "Chapter 22", "Chapter 23", "Chapter 24", "Chapter 25", "Chapter 26", "Chapter 27", "Chapter 28", "Chapter 29", "Chapter 30", "Epilogue"]},
+      chapters: ["Title Page", "Prologue", "Chapter 1", "Chapter 2", "Chapter 3", "Chapter 4", "Chapter 5", "Chapter 6", "Chapter 7", "Chapter 8", "Chapter 9", "Chapter 10", "Chapter 11", "Chapter 12", "Chapter 13", "Chapter 14", "Chapter 15", "Chapter 16", "Chapter 17", "Chapter 18", "Chapter 19", "Chapter 20", "Chapter 21", "Chapter 22", "Chapter 23", "Chapter 24", "Chapter 25", "Chapter 26", "Chapter 27", "Chapter 28", "Chapter 29", "Chapter 30", "Epilogue"]},
     {
       title: "Le Monstre Social",
       slug: "le-monstre-social",
@@ -41,13 +41,14 @@ export default function ComicTOC() {
       <p className="text-gray-600 mb-8">{comic.description}</p>
       <h3 className="text-2xl font-semibold mb-4">Table of Contents</h3>
       <div className="grid grid-cols-3 gap-4">
-        {comic.chapters.map((chapter, index) => (
-          <div key={index} className="bg-gray-100 p-4 rounded">
-            <Link to={`/comics/${comic.slug}/chapter/${index + 1}`} className="text-purple-600 hover:underline">
-              {chapter}
-            </Link>
-          </div>
-        ))}
+    {comic.chapters.map((chapter, index) => (
+  <div key={index} className="bg-gray-100 p-4 rounded">
+    {/* index will be 0 for Title Page, 1 for Prologue, etc. */}
+    <Link to={`/comics/${comic.slug}/chapter/${index}`} className="text-purple-600 hover:underline">
+      {chapter}
+    </Link>
+  </div>
+))}
       </div>
     </div>
   );

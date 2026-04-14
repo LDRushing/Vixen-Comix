@@ -1,281 +1,243 @@
-body, p, div {
-  color: #006b40
-  /* margin: 0;
-  padding: 0; */
-}
-.logo-yellow {
-  color: #ffe37d; /* A bright, eye-catching yellow */
-  font-family: 'Lucida Handwriting', cursive;
-  text-transform: none; /* Keeps the logo in title case, which looks better for cursive fonts */
-  text-shadow: 2px 4px 8px rgba(0, 0, 0, 0.5); /* Adds a shadow to make it pop against the art */
-}
-.header-content p {
-  color: #006b40;
-}
-.App {
-  text-align: center;
-}
+/* 1. FONTS & GLOBALS */
+@import url('https://fonts.googleapis.com/css2?family=Eagle+Lake&family=MedievalSharp&family=Almendra:wght@400;700&display=swap');
 
+/* 1. GLOBAL FONT OVERRIDE */
+body, p, div, h1, h2, h3, h4, h5, h6, span, a, button, input, textarea {
+  font-family: 'Eagle Lake', serif;
+  color: #006b40; /* Your signature Vixen Green */
+}
+/* This ensures that even things in the "Main Content Area" use it */
+main {
+  font-family: 'Eagle Lake', serif;
+}
 #root {
   margin: 0;
   padding: 0;
   text-align: center;
 }
 
-/* Updated Art Header to handle centering */
+/* 2. HEADER & LOGO */
 .art-header {
   min-height: 300px;
-  display: flex;             /* Added */
-  align-items: center;       /* Centers vertically */
-  justify-content: center;    /* Centers horizontally */
-  margin-top: 0;
-  padding-top: 0;            /* Removed the 1px padding */
-  background-image: url('/4th anniversary printWout Amanda.jpg');
-  font-family: 'Lucida Handwriting', 'Apple Chancery', 'Segoe Script', cursive;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url('/vale-of-wales/header-anniversary.jpg');
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
   position: relative;
 }
 
-/* Make the logo text much larger and bolder */
-.header-content h1 {
-  font-size: 5rem !important; /* Increased from text-4xl (~2.25rem) to 5rem */
-  margin: 0;
-  line-height: 1;
-  text-shadow: 2px 4px 8px rgba(0, 0, 0, 0.5); /* Makes it pop against the art */
+.logo-yellow {
+  color: #ffe37d;
+  font-family: 'Eagle Lake', serif;
+  font-size: 5rem;
+  text-shadow: 2px 4px 8px rgba(0, 0, 0, 0.5);
 }
 
-/* Ensure the link inside takes the full font size */
-.header-content h1 a {
-  font-family: 'Lucida Handwriting', cursive;
-  text-transform: none; /* Looks better in title case for cursive */
+/* 3. NAVIGATION BAR */
+.vixen-nav-main {
+  background-color: #591c87b6; /* Purple */
+  padding: 2rem 0;
 }
-
-nav {
-  display: flex;
-  gap: 2rem;
-  justify-content: center;
-  /* This creates the "noticeable space" below the header image */
-  font-family: 'Lucida Handwriting', cursive, sans-serif;
-  margin-top: 1rem; 
-  margin-bottom: 1rem;
-  flex-wrap: wrap;
-}
-nav a {
-  color: #007345;
-  text-decoration: none;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  transition: background-color 0.3s;
-}
-
-nav a:hover {
-  background-color: rgba(0, 53, 177, 0.231);
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #242fffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.home-hero {
-  padding: 2rem;
+/* Prints and Film Page Headers */
+.film-container h3, 
+.prints-container h2,
+.contact-container h2 {
+  font-family: 'Eagle Lake', serif;
+  font-size: 2.5rem;
   text-align: center;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  margin: 2rem 0;
+  margin-bottom: 2rem;
+  color: #006b40;
 }
 
-.bio-container {
-  max-width: 1200px;
-  margin: 0 auto;
+/* Ensure the text inside those pages is readable */
+.indented-paragraph {
+  font-family: 'Eagle Lake', serif;
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+/* Update the login/register inputs so they match the vibe */
+input, select {
+  font-family: 'Eagle Lake', serif;
+  border: 1px solid #006b40;
+  padding: 8px;
+  border-radius: 4px;
+}
+/* THE SPREAD: This controls the gap between buttons */
+.nav-row-links {
+  gap: 5rem !important; 
+}
+
+.nav-button {
+  padding: 10px 20px;
+  padding-bottom: 14px;
+  border: 2px solid #006312;
+  background-color: #ff9e49; /* Orange/Peach */
+  border-radius: 8px;
+  color: #00277a !important;
+  font-family: 'Eagle Lake', serif;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+  backdrop-filter: blur(4px);
+}
+
+.nav-button:hover {
+  background-color: rgba(78, 0, 96, 0.6);
+  border-color: #007e4e;
+  color: #b4dcff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 220, 82, 0.5);
+}
+
+/* 4. SPECIAL BUTTONS */
+.special-nav {
+  margin-left: 50px !important;
+  border-left: 2px solid rgba(255, 255, 255, 0.4) !important;
+  padding-left: 50px !important;
+  font-weight: bold;
+}
+
+.admin-nav {
+  margin: 0 10px !important;
+  color: rgb(0, 140, 255) !important;
+  border-color: #008f56 !important;
+  background-color: rgba(255, 255, 255, 0.808) !important;
+}
+
+.logout-button {
+  border-color: #ef4444 !important;
+  background-color: rgba(239, 68, 68, 0.2) !important;
+  color: white !important;
+}
+
+/* --- PARAGRAPH STYLING --- */
+.indented-paragraph {
+  text-indent: 50px; /* This creates the traditional book indent */
+  margin-bottom: 1.5rem; /* Space between the two paragraphs */
+  text-align: justify; /* Keeps the edges clean like a storybook */
+  line-height: 1.8; /* Prevents the Eagle Lake flourishes from overlapping */
+  display: block;
+}
+
+.film-container {
+  max-width: 700px; /* This makes the paragraphs narrower and much easier to read */
+  margin: 0 auto;   /* Centers the container on the page */
   padding: 2rem;
+  text-align: justify; /* Keeps the edges clean */
+}
+
+.film-header {
+  font-family: 'Eagle Lake', serif;
+  font-size: 2.2rem;
+  margin-bottom: 2.5rem;
+  color: #006b40;
+  line-height: 1.2;
+}
+
+.indented-paragraph {
+  text-indent: 40px;
+  margin-bottom: 1.8rem;
+  font-size: 1.15rem; /* Slightly larger for readability */
+  line-height: 1.8;   /* Adds "breathing room" between lines */
+}
+
+/* Adjusting the Bio Layout specifically */
+.bio-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+/* 5. COMIC READER NAVIGATION (PREV/NEXT) */
+.comic-nav-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8rem; /* Wide spread for comic pages */
+  margin-top: 2.5rem;
+}
+
+.comic-nav-btn {
+  background-color: #006b40 !important;
+  color: white !important;
+  padding: 12px 32px;
+  border-radius: 8px;
+  font-family: 'Eagle Lake', serif;
+  font-size: 1.2rem;
+  min-width: 160px;
+  text-align: center;
+  border: 2px solid transparent;
+}
+
+.comic-nav-btn:hover {
+  background-color: #008f56 !important;
+  border-color: #ffe37d; /* Yellow glow instead of red */
+}
+
+/* 6. FOOTER */
+.vixen-social-row {
+  display: flex !important;
+  justify-content: center !important;
+  gap: 48px !important;
+  margin: 20px 0;
+}
+
+.vixen-social-row a {
+  color: #006b40 !important;
+}
+/* --- BIOGRAPHY PAGE STYLES --- */
+.bio-container {
+  max-width: 1000px;
+  margin: 4rem auto;
+  padding: 0 2rem;
+  font-family: 'Eagle Lake', serif;
+}
+
+.bio-container h2 {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  color: #006b40;
 }
 
 .bio-content {
   display: flex;
-  gap: 2rem;
-  align-items: flex-start;
-  margin-top: 2rem;
+  gap: 4rem; /* Wide space between portrait and text */
+  align-items: center; /* Centers portrait vertically against the text */
+  text-align: left; /* Keeps text readable */
 }
 
 .bio-image {
-  flex: 0 0 300px;
+  flex: 0 0 350px; /* Forces the image container to stay exactly 350px wide */
+  max-width: 350px;
 }
 
 .bio-image img {
   width: 100%;
   height: auto;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  border: 4px solid #006b40; /* Vixen Green frame */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
-.bio-text {
-  flex: 1;
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: #333;
+.bio-text p {
+  font-size: 1.3rem;
+  line-height: 1.8;
+  color: #1a1a1a; /* Darker for better legibility on bio */
 }
 
+/* Mobile Responsive: Stacks portrait on top of text for phones */
 @media (max-width: 768px) {
   .bio-content {
     flex-direction: column;
+    text-align: center;
   }
-
+  
   .bio-image {
-    flex: none;
-    align-self: center;
+    flex: 0 0 auto;
+    width: 250px;
+    margin-bottom: 2rem;
   }
-
-  .bio-image img {
-    max-width: 250px;
-  }
-}
-/* 1. Center the footer content */
-.footer-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 40px 0;
-}
-
-/* 2. THE FIX: Force the icons into a green, horizontal, spaced-out row */
-.vixen-social-row {
-  display: flex !important;
-  flex-direction: row !important; /* Forces side-by-side */
-  justify-content: center !important;
-  align-items: center !important;
-  gap: 48px !important; /* Creates the organized separation */
-  margin: 20px 0;
-  width: 100%;
-}
-
-/* 3. Force the green color and remove blue link defaults */
-.vixen-social-row a {
-  color: #006b40 !important; /* Signature Vixen Green */
-  text-decoration: none !important;
-  display: flex;
-  transition: transform 0.2s ease-in-out;
-}
-
-.vixen-social-row a:hover {
-  transform: scale(1.1);
-  color: #008f56 !important; /* Slightly lighter green on hover */
-}
-
-/* 4. Text styling for footer */
-.footer-text {
-  color: #666;
-  font-size: 14px;
-  margin-bottom: 8px;
-}
-
-.copyright-text {
-  color: #999;
-  font-size: 12px;
-  margin-top: 16px;
-}
-.film-container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 2rem;
-  line-height: 1.6;
-  color: #333;
-}
-
-.indented-paragraph {
-  text-indent: 40px; /* Adjust this number to make the indent deeper or shallower */
-  margin-bottom: 1.5rem;
-  text-align: justify; /* This makes the paragraphs look like a published book */
-}
-
-.film-container h3 {
-  text-align: center;
-  color: #006b40; /* Using your Vixen Green */
-  margin-bottom: 2rem;
-}
-/* Styling for each Nav Link */
-.nav-button {
-  padding: 10px 20px;
-  border: 2px solid rgb(255, 255, 255); /* subtle white-transparent border */
-  background-color: rgba(88, 28, 135, 0.4);
-  border-radius: 8px;
-  transition: all 0.3s ease;
-  text-decoration: none;
-  color: rgb(255, 255, 255);
-  display: inline-block;
-  backdrop-filter: blue(4px);
-}
-
-/* The "Pop" on Hover */
-.nav-button:hover {
-  background-color: rgb(78, 0, 96);
-  border-color: #007e4e; /* This gives it a bright green "pop" when hovering */
-  color: #b4dcff;
-  transform: translateY(-2px); /* Slight lift effect */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-/* Optional: Make the "My Reading" button stand out even more */
-.special-nav {
-  border-color: #008c56 !important; /* Always green border */
-  font-weight: bold;
-  margin-left: 20px;
-}
-/* Space out the Admin buttons so they aren't squished */
-.admin-nav {
-  margin: 0 5px !important; /* Adds breathing room on both sides */
-  border-color: #008f56 !important; /* Vixen Green border for Admin */
-  background-color: rgba(0, 143, 86, 0.2) !important; /* Transparent green fill */
-}
-
-/* Give the Logout button a distinct "Warning" feel */
-.logout-button {
-  margin-left: 10px !important;
-  border-color: #ef4444 !important; /* Red border */
-  background-color: rgba(239, 68, 68, 0.2) !important;
-}
-
-.logout-button:hover {
-  background-color: #ef4444 !important;
-  color: white !important;
-  border-color: white !important;
-}
-
-/* Fix for the "My Reading" separator */
-.special-nav {
-  margin-left: 15px !important; /* Keeps the gap consistent */
-  border-left: 2px solid rgba(255, 255, 255, 0.5) !important; 
-  padding-left: 20px !important;
 }
