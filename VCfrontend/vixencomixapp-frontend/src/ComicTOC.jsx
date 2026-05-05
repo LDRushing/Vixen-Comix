@@ -33,22 +33,35 @@ export default function ComicTOC() {
     return <div className="container mx-auto p-6"><h2>Comic not found</h2></div>;
   }
 
+  const getChapterStartPage = (index) => {
+    if (index === 0) return 0; // Title Page
+    if (index === 1) return 1; // First Prologue page
+    if (index === 2) return 7; // Beginning of Chapter 1
+    return null; // Future chapters are not yet available
+  };
+
   return (
     <div className="container mx-auto p-6">
       <Link to="/comics" className="text-purple-600 hover:underline mb-4 inline-block">&larr; Back to Comics</Link>
       <h2 className="text-3xl font-bold mb-4">{comic.title}</h2>
-      <img src={comic.image} alt="Comic cover" className="w-full max-w-md h-64 object-cover rounded mb-4" />
+      <img src="/vale-of-wales/5th anniversary300.jpg" alt="Vale of Wales 5th anniversary cover" className="w-full max-w-md h-64 object-cover rounded mb-4" />
       <p className="text-gray-600 mb-8">{comic.description}</p>
       <h3 className="text-2xl font-semibold mb-4">Table of Contents</h3>
       <div className="grid grid-cols-3 gap-4">
-    {comic.chapters.map((chapter, index) => (
-  <div key={index} className="bg-gray-100 p-4 rounded">
-    {/* index will be 0 for Title Page, 1 for Prologue, etc. */}
-    <Link to={`/comics/${comic.slug}/chapter/${index}`} className="text-purple-600 hover:underline">
-      {chapter}
-    </Link>
-  </div>
-))}
+        {comic.chapters.map((chapter, index) => {
+          const routeChapter = getChapterStartPage(index);
+          return (
+            <div key={index} className="bg-gray-100 p-4 rounded">
+              {routeChapter !== null ? (
+                <Link to={`/comics/${comic.slug}/chapter/${routeChapter}`} className="text-purple-600 hover:underline">
+                  {chapter}
+                </Link>
+              ) : (
+                <div className="text-gray-500">{chapter} <span className="text-sm text-gray-400">(Coming Soon)</span></div>
+              )}
+            </div>
+          );
+        })}
       </div>
     </div>
   );

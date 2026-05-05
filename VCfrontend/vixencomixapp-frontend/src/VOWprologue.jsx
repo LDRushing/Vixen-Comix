@@ -11,14 +11,16 @@ export default function VOWprologue() {
 
   // NEW: Logic to find the right folder and filename
   const imageData = useMemo(() => {
-    // Default/Title Page
+    const COMING_SOON_URL = "https://64.media.tumblr.com/482bb929c9920a5703191f820df2f612/tumblr_pvwvr2jEjb1ytw60to1_1280.jpg";
+
+    // Title Page - Coming Soon
     if (currentChapter === 0) {
       return {
-        path: `/${slug}/chapter-0.jpg`, 
+        path: COMING_SOON_URL,
         title: "Title Page"
       };
     }
-    
+
     // Prologue Pages (1-6)
     if (currentChapter >= 1 && currentChapter <= 6) {
       return {
@@ -27,10 +29,22 @@ export default function VOWprologue() {
       };
     }
 
-    // Future Chapters (Example: Chapter 1 starts at index 7)
+    // Any chapter page after the prologue
+    if (currentChapter >= 7) {
+      const chapterNumber = Math.floor((currentChapter - 7) / 21) + 1;
+      const pageInChapter = currentChapter - 7 - (chapterNumber - 1) * 21 + 1;
+      return {
+        path: `/${slug}/chapter-${chapterNumber}/page-${pageInChapter}.jpg`,
+        title:
+          pageInChapter === 1
+            ? `Chapter ${chapterNumber} Title Page`
+            : `Chapter ${chapterNumber} - Page ${pageInChapter - 1}`
+      };
+    }
+
     return {
-      path: `/${slug}/chapter-1/page-${currentChapter - 6}.jpg`,
-      title: `Chapter 1 - Page ${currentChapter - 6}`
+      path: COMING_SOON_URL,
+      title: "Coming Soon"
     };
   }, [slug, currentChapter]);
 
@@ -72,7 +86,7 @@ export default function VOWprologue() {
           <div className="nav-spacer"></div> 
         )}
 
-        {currentChapter < 6 ? (
+        {currentChapter < 27 ? (
           <Link
             to={`/comics/${slug}/chapter/${currentChapter + 1}`}
             className="comic-nav-btn"
