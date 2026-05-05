@@ -94,6 +94,7 @@ export default function Contact() {
         >
           Send Message
         </button>
+        <h3>Please check Spam folder for responses.</h3>
       </form>
     </div>
   );

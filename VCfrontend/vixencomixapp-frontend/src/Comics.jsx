@@ -7,7 +7,7 @@ export default function Comics() {
       title: "The Vale of Wales", 
       slug: "vale-of-wales",
       description: "One girl's perilous journey through the Welsh Otherworld, Annwn. Beware the Afanc King...", 
-      image: "/5th anniversary300.jpg",
+      image: "/vale-of-wales/5th anniversary300.jpg",
     },
     { 
       title: "Le Monstre Social", 
@@ -52,7 +52,7 @@ export default function Comics() {
             }}
           >
             {/* 1. IMAGE ON THE LEFT */}
-            <div style={{ flex: '0 0 300px', backgroundColor: '#f3f4f6' }}>
+            <div style={{ flex: '0 0 300px', backgroundColor: '#f3f4f6', minHeight: '300px' }}>
               <img 
                 src={comic.image} 
                 alt={comic.title} 

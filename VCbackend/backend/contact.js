@@ -17,7 +17,7 @@ router.post("/", async (req, res, next) => {
   try {
     await resend.emails.send({
       from: "faeriecongress@vixencomix.art",
-      to: "faeriecongress@vixencomix.art",
+      to: ["faeriecongress@vixencomix.art", process.env.YAHOO_EMAIL || "rushinglucy@yahoo.com"],
       reply_to: email,
       subject: `New message from ${name}`,
       html: `<p><strong>Name:</strong> ${name}</p><p><strong>Email:</strong> ${email}</p><p><strong>Message:</strong></p><p>${message}</p>`,
