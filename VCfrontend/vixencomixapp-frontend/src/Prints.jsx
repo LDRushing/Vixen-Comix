@@ -1,48 +1,57 @@
 export default function Prints() {
   const prints = [
     {
-      title: "Prints Coming Soon!",
-      description: "We are currently preparing high-quality prints for the shop. Stay tuned!",
-      price: "TBA"
+      title: "Halloween 2022",
+      description: "A Halloween-themed print featuring Amanda and Lili under the moonlight.",
+      image: "https://64.media.tumblr.com/8af62a01767a5aebfb90bc125e7f0df0/9d59f92447e2c115-a7/s1280x1920/ab001d2a6aed9edf36d42254a3f8675318f44796.jpg"
+    },
+    {
+      title: "Vixen Portrait",
+      description: "A stylized portrait study of the Vixen Comix heroine in vibrant color.",
+      image: "/prints/vixen-portrait.jpg"
+    },
+    {
+      title: "Vale of Wales Landscape",
+      description: "The Welsh Otherworld rendered as a cinematic landscape scene.",
+      image: "/prints/vale-of-wales-landscape.jpg"
     }
   ];
 
-  // Check if we actually have inventory or just the placeholder
-  const isComingSoon = prints.length === 1 && prints[0].title === "Prints Coming Soon!";
+  const isComingSoon = prints.length === 0;
 
   return (
     <div className="container mx-auto p-6">
-      <h2 className="text-3xl font-bold text-center mb-8">Care for a Print?</h2>
-      
+      <h2 className="text-3xl font-bold text-center mb-4">Vixen Prints Gallery</h2>
+      <p className="text-center mb-10 text-gray-600 max-w-2xl mx-auto">
+        Browse the current collection of artwork from Vixen Comix. Enjoy our gallery!
+      </p>
+
       {isComingSoon ? (
-        /* Single, Centered Coming Soon Card */
         <div className="max-w-md mx-auto bg-white rounded-xl shadow-md p-8 text-center border-t-4 border-purple-600">
-          <h3 className="text-2xl font-bold text-gray-800 mb-4">{prints[0].title}</h3>
-          <p className="text-gray-600 mb-6">{prints[0].description}</p>
+          <h3 className="text-2xl font-bold text-gray-800 mb-4">Gallery Coming Soon</h3>
+          <p className="text-gray-600 mb-6">Artwork is being prepared for the gallery. Check back soon for new prints.</p>
           <div className="inline-block bg-purple-100 text-purple-700 px-4 py-2 rounded-full font-semibold">
-            Store Launching Soon
+            Gallery Launching Soon
           </div>
         </div>
       ) : (
-        /* Normal Grid view for when you have multiple prints */
-        <>
-          <p className="text-center mb-8">Check out these prints of your favorite Vixen characters!</p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {prints.map((print, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-md p-4">
-                {print.image && (
-                  <img src={print.image} alt={print.title} className="w-full h-48 object-cover rounded mb-4" />
-                )}
-                <h3 className="text-xl font-semibold mb-2">{print.title}</h3>
-                <p className="text-gray-600 mb-2">{print.description}</p>
-                <p className="text-lg font-bold text-purple-600">{print.price}</p>
-                <button className="mt-4 bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">
-                  Add to Cart
-                </button>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {prints.map((print, index) => (
+            <div key={index} className="bg-white rounded-3xl shadow-xl overflow-hidden hover:-translate-y-1 transition-transform duration-200">
+              {print.image ? (
+                <img src={print.image} alt={print.title} className="w-full h-48 object-cover" />
+              ) : (
+                <div className="w-full h-48 bg-gray-200 flex items-center justify-center text-gray-500">
+                  Image coming soon
+                </div>
+              )}
+              <div className="p-5">
+                <h3 className="text-xl font-semibold mb-2 text-gray-900">{print.title}</h3>
+                <p className="text-gray-600">{print.description}</p>
               </div>
-            ))}
-          </div>
-        </>
+            </div>
+          ))}
+        </div>
       )}
     </div>
   );

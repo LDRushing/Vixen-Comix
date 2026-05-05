@@ -28,7 +28,7 @@ export default function Contact() {
 
   return (
     <div className="container mx-auto p-6" style={{ maxWidth: '600px', margin: '0 auto' }}>
-      <h2 className="text-3xl font-bold text-center mb-8" style={{ color: '#006b40' }}>Contact Me</h2>
+      <h2 className="text-3xl font-bold text-center mb-8" style={{ color: '#006b40' }}>Care to commission? Contact the Faerie Congress!</h2>
       
       <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
         
