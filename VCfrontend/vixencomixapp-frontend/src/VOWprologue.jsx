@@ -29,16 +29,23 @@ export default function VOWprologue() {
       };
     }
 
-    // Any chapter page after the prologue
-    if (currentChapter >= 7) {
-      const chapterNumber = Math.floor((currentChapter - 7) / 21) + 1;
-      const pageInChapter = currentChapter - 7 - (chapterNumber - 1) * 21 + 1;
+    // Chapter 1 pages (7-25) — removes the invalid extra page 20 placeholder
+    if (currentChapter >= 7 && currentChapter <= 25) {
+      const chapter1Page = currentChapter - 6;
       return {
-        path: `/${slug}/chapter-${chapterNumber}/page-${pageInChapter}.jpg`,
-        title:
-          pageInChapter === 1
-            ? `Chapter ${chapterNumber} Title Page`
-            : `Chapter ${chapterNumber} - Page ${pageInChapter - 1}`
+        path: `/${slug}/chapter-1/page-${chapter1Page}.jpg`,
+        title: `Chapter 1 - Page ${chapter1Page}`
+      };
+    }
+
+    // Chapter 2 pages (26-30) — follow the same page-numbering pattern as Chapter 1
+    if (currentChapter >= 26 && currentChapter <= 30) {
+      const pageInChapter = currentChapter - 25;
+      return {
+        path: pageInChapter === 1
+          ? `/${slug}/chapter 2/chapter 2 title pg.jpg`
+          : `/${slug}/chapter 2/ch 2 pg ${pageInChapter - 1}.jpg`,
+        title: `Chapter 2 - Page ${pageInChapter}`
       };
     }
 
@@ -86,7 +93,7 @@ export default function VOWprologue() {
           <div className="nav-spacer"></div> 
         )}
 
-        {currentChapter < 27 ? (
+        {currentChapter < 30 ? (
           <Link
             to={`/comics/${slug}/chapter/${currentChapter + 1}`}
             className="comic-nav-btn"

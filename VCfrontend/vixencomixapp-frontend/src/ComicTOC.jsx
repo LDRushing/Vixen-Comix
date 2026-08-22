@@ -37,6 +37,7 @@ export default function ComicTOC() {
     if (index === 0) return 0; // Title Page
     if (index === 1) return 1; // First Prologue page
     if (index === 2) return 7; // Beginning of Chapter 1
+    if (index === 3) return 26; // Beginning of Chapter 2
     return null; // Future chapters are not yet available
   };
 
