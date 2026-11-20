@@ -1,0 +1,347 @@
+/* Styles for the comics hub pages (list, table of contents, reader, panels).
+   Palette and font come from App.css: green #006b40, yellow #ffe37d,
+   purple #591c87b6, orange #ff9e49, font 'Eagle Lake'. */
+
+/* ---- Shared ---- */
+.hub-page {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+  box-sizing: border-box;
+}
+
+.hub-title {
+  font-size: 2rem;
+  margin: 0 0 0.5rem;
+  color: #006b40;
+}
+
+.hub-subtitle {
+  font-style: italic;
+  margin: 0 0 2rem;
+  color: #1a1a1a;
+}
+
+.hub-link {
+  color: #006b40;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.hub-link:hover {
+  color: #008f56;
+}
+
+.hub-back {
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+.hub-btn {
+  display: inline-block;
+  padding: 10px 24px;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  background-color: #006b40;
+  color: #ffffff;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.hub-btn:hover {
+  background-color: #008f56;
+  border-color: #ffe37d;
+  color: #ffffff;
+}
+
+.badge-soon {
+  display: inline-block;
+  padding: 2px 12px;
+  border-radius: 999px;
+  background-color: #ffe37d;
+  border: 1px solid #006b40;
+  color: #006b40;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.hub-panel {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-top: 4px solid #006b40;
+  border-radius: 12px;
+  line-height: 1.6;
+}
+
+.hub-panel-title {
+  margin: 0 0 0.75rem;
+  color: #006b40;
+}
+
+.hub-panel-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+/* ---- Comics list ---- */
+.comic-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.comic-card {
+  display: flex;
+  align-items: stretch;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: left;
+}
+
+.comic-card-cover {
+  flex: 0 0 300px;
+  min-height: 300px;
+  background-color: #f3f4f6;
+}
+
+.comic-card-cover img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.comic-card-body {
+  flex: 1;
+  min-width: 0;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.comic-card-title {
+  margin: 0;
+  font-size: 1.6rem;
+  color: #006b40;
+}
+
+.comic-card-description {
+  margin: 0;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #1a1a1a;
+}
+
+/* ---- Table of contents ---- */
+.toc-cover {
+  display: block;
+  width: 100%;
+  max-width: 448px;
+  height: 256px;
+  object-fit: cover;
+  margin: 0 auto 1rem;
+  border-radius: 8px;
+}
+
+.toc-cover-placeholder {
+  height: auto;
+  max-width: 300px;
+  aspect-ratio: 1 / 1;
+}
+
+.toc-description {
+  max-width: 700px;
+  margin: 0 auto 1.5rem;
+  line-height: 1.7;
+  color: #1a1a1a;
+}
+
+.toc-heading {
+  margin: 1.5rem 0 1rem;
+  font-size: 1.5rem;
+}
+
+.toc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 1rem;
+  text-align: center;
+}
+
+.toc-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  overflow-wrap: anywhere;
+}
+
+.toc-soon,
+.toc-soon-note {
+  color: #4b5563;
+}
+
+.toc-soon-note {
+  font-size: 0.85rem;
+}
+
+/* ---- Home ---- */
+.home-comics {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+  box-sizing: border-box;
+}
+
+.home-comic-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.home-comic-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+.home-comic-card img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 6px;
+  display: block;
+}
+
+.home-comic-card:hover {
+  border-color: #006b40;
+}
+
+.home-comic-title {
+  font-weight: 700;
+  color: #006b40;
+}
+
+/* ---- Reader ---- */
+.reader {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+  box-sizing: border-box;
+}
+
+.reader-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.reader-title {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #006b40;
+}
+
+.reader-frame {
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem;
+  background-color: #111827;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+.reader-frame img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.nav-spacer {
+  min-width: 160px;
+}
+
+/* ---- Prints ---- */
+.prints-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+.print-card {
+  background-color: #ffffff;
+  border-radius: 24px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.print-card-text {
+  padding: 1.25rem;
+}
+
+.print-card-image {
+  display: block;
+  width: 100%;
+  height: 12rem;
+  object-fit: cover;
+}
+
+/* ---- Small screens ---- */
+@media (max-width: 700px) {
+  .comic-card {
+    flex-direction: column;
+  }
+
+  .comic-card-cover {
+    flex: 0 0 auto;
+    min-height: 0;
+    height: auto;
+    aspect-ratio: 1 / 1;
+  }
+
+  .comic-card-body {
+    padding: 1.25rem;
+  }
+
+  /* The reader's Previous/Next buttons use a wide gap on desktop. */
+  .comic-nav-container {
+    gap: 1rem;
+  }
+
+  .comic-nav-btn,
+  .nav-spacer {
+    min-width: 0;
+    flex: 1;
+    box-sizing: border-box;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}

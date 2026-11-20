@@ -1,9 +1,11 @@
-* html, body {
+/* html, body {
   margin: 0;
   padding: 0;
   border: 0;
-  overflow-x: hidden; /* Prevents unwanted horizontal scrolling */
- */
+  overflow-x: hidden; (prevents unwanted horizontal scrolling)
+} */
+/* Disabled on purpose: this block was never applied (its stray comment end broke it).
+   Turning it on would change fonts and spacing across the site.
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -18,13 +20,15 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+*/
 
-a {
+/* Links: "body a" keeps these winning over the plain a rule in App.css, as before. */
+body a {
   font-weight: 500;
   color: #646cff;
   text-decoration: inherit;
 }
-a:hover {
+body a:hover {
   color: #535bf2;
 }
 
@@ -71,7 +75,7 @@ button:focus-visible {
     color: #213547;
     background-color: #ffffff;
   }
-  a:hover {
+  body a:hover {
     color: #747bff;
   }
   button {
@@ -101,4 +105,4 @@ button:focus-visible {
 .social-container a:hover {
   color: #008f56 !important; /* Lighter green on hover */
   transform: scale(1.2);
-} } 
+}

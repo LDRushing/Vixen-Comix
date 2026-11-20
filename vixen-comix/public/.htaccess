@@ -1,0 +1,44 @@
+# Apache rules for vixencomix.art on IONOS shared hosting.
+# Vite copies this file into dist/. Upload it with the rest of dist/.
+# (It starts with a dot, so turn on "show hidden files" in your SFTP client.)
+
+Options -MultiViews
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # --- Optional: force HTTPS ---
+  # Uncomment these three lines once the IONOS SSL certificate is active.
+  # RewriteCond %{HTTPS} !=on
+  # RewriteCond %{HTTP:X-Forwarded-Proto} !https
+  # RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # --- Single-page app routing ---
+  # Anything that is not a real file or folder, and has no file extension,
+  # is served by index.html so deep links like
+  # /vale-of-wales/chapter-1/page-5 work on refresh.
+  # Requests that look like files (.jpg, .js, .json ...) are not rewritten,
+  # so a missing image returns a real 404 and the reader shows its fallback.
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_URI} !\.[A-Za-z0-9]+$
+  RewriteRule ^ /index.html [L]
+</IfModule>
+
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set X-Frame-Options "SAMEORIGIN"
+
+  # index.html and comics.json change when you publish: always revalidate.
+  <FilesMatch "^(index\.html|comics\.json)$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+
+  # Vite file names under /assets/ contain a content hash, so they never change.
+  <IfModule mod_setenvif.c>
+    SetEnvIf Request_URI "^/assets/" VC_HASHED_ASSET
+    Header set Cache-Control "public, max-age=31536000, immutable" env=VC_HASHED_ASSET
+  </IfModule>
+</IfModule>

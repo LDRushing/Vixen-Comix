@@ -1,0 +1,226 @@
+{
+  "comics": [
+    {
+      "slug": "vale-of-wales",
+      "title": "The Vale of Wales",
+      "status": "ongoing",
+      "description": "One girl's perilous journey through the Welsh Otherworld, Annwn. Beware the Afanc King...",
+      "cover": "/vale-of-wales/5th anniversary300.jpg",
+      "externalUrl": "https://vowcomic.tumblr.com",
+      "chapters": [
+        {
+          "slug": "prologue",
+          "title": "Prologue",
+          "pages": [
+            "/vale-of-wales/prologue/page-0.jpg",
+            "/vale-of-wales/prologue/page-1.jpg",
+            "/vale-of-wales/prologue/page-2.jpg",
+            "/vale-of-wales/prologue/page-3.jpg",
+            "/vale-of-wales/prologue/page-4.jpg",
+            "/vale-of-wales/prologue/page-5.jpg",
+            "/vale-of-wales/prologue/page-6.jpg"
+          ]
+        },
+        {
+          "slug": "chapter-1",
+          "title": "Chapter 1",
+          "pages": [
+            "/vale-of-wales/chapter-1/page-1.jpg",
+            "/vale-of-wales/chapter-1/page-2.jpg",
+            "/vale-of-wales/chapter-1/page-3.jpg",
+            "/vale-of-wales/chapter-1/page-4.jpg",
+            "/vale-of-wales/chapter-1/page-5.jpg",
+            "/vale-of-wales/chapter-1/page-6.jpg",
+            "/vale-of-wales/chapter-1/page-7.jpg",
+            "/vale-of-wales/chapter-1/page-8.jpg",
+            "/vale-of-wales/chapter-1/page-9.jpg",
+            "/vale-of-wales/chapter-1/page-10.jpg",
+            "/vale-of-wales/chapter-1/page-11.jpg",
+            "/vale-of-wales/chapter-1/page-12.jpg",
+            "/vale-of-wales/chapter-1/page-13.jpg",
+            "/vale-of-wales/chapter-1/page-14.jpg",
+            "/vale-of-wales/chapter-1/page-15.jpg",
+            "/vale-of-wales/chapter-1/page-16.jpg",
+            "/vale-of-wales/chapter-1/page-17.jpg",
+            "/vale-of-wales/chapter-1/page-18.jpg",
+            "/vale-of-wales/chapter-1/page-19.jpg",
+            "/vale-of-wales/chapter-1/page-20.jpg"
+          ]
+        },
+        {
+          "slug": "chapter-2",
+          "title": "Chapter 2",
+          "pages": [
+            "/vale-of-wales/chapter 2/chapter 2 title pg.jpg",
+            "/vale-of-wales/chapter 2/ch 2 pg 1.jpg",
+            "/vale-of-wales/chapter 2/ch 2 pg 2.jpg",
+            "/vale-of-wales/chapter 2/ch 2 pg 3.jpg",
+            "/vale-of-wales/chapter 2/ch 2 pg 4.jpg",
+            "/vale-of-wales/chapter 2/ch 2 pg 5.jpg"
+          ]
+        },
+        {
+          "slug": "chapter-3",
+          "title": "Chapter 3",
+          "pages": []
+        },
+        {
+          "slug": "chapter-4",
+          "title": "Chapter 4",
+          "pages": []
+        },
+        {
+          "slug": "chapter-5",
+          "title": "Chapter 5",
+          "pages": []
+        },
+        {
+          "slug": "chapter-6",
+          "title": "Chapter 6",
+          "pages": []
+        },
+        {
+          "slug": "chapter-7",
+          "title": "Chapter 7",
+          "pages": []
+        },
+        {
+          "slug": "chapter-8",
+          "title": "Chapter 8",
+          "pages": []
+        },
+        {
+          "slug": "chapter-9",
+          "title": "Chapter 9",
+          "pages": []
+        },
+        {
+          "slug": "chapter-10",
+          "title": "Chapter 10",
+          "pages": []
+        },
+        {
+          "slug": "chapter-11",
+          "title": "Chapter 11",
+          "pages": []
+        },
+        {
+          "slug": "chapter-12",
+          "title": "Chapter 12",
+          "pages": []
+        },
+        {
+          "slug": "chapter-13",
+          "title": "Chapter 13",
+          "pages": []
+        },
+        {
+          "slug": "chapter-14",
+          "title": "Chapter 14",
+          "pages": []
+        },
+        {
+          "slug": "chapter-15",
+          "title": "Chapter 15",
+          "pages": []
+        },
+        {
+          "slug": "chapter-16",
+          "title": "Chapter 16",
+          "pages": []
+        },
+        {
+          "slug": "chapter-17",
+          "title": "Chapter 17",
+          "pages": []
+        },
+        {
+          "slug": "chapter-18",
+          "title": "Chapter 18",
+          "pages": []
+        },
+        {
+          "slug": "chapter-19",
+          "title": "Chapter 19",
+          "pages": []
+        },
+        {
+          "slug": "chapter-20",
+          "title": "Chapter 20",
+          "pages": []
+        },
+        {
+          "slug": "chapter-21",
+          "title": "Chapter 21",
+          "pages": []
+        },
+        {
+          "slug": "chapter-22",
+          "title": "Chapter 22",
+          "pages": []
+        },
+        {
+          "slug": "chapter-23",
+          "title": "Chapter 23",
+          "pages": []
+        },
+        {
+          "slug": "chapter-24",
+          "title": "Chapter 24",
+          "pages": []
+        },
+        {
+          "slug": "chapter-25",
+          "title": "Chapter 25",
+          "pages": []
+        },
+        {
+          "slug": "chapter-26",
+          "title": "Chapter 26",
+          "pages": []
+        },
+        {
+          "slug": "chapter-27",
+          "title": "Chapter 27",
+          "pages": []
+        },
+        {
+          "slug": "chapter-28",
+          "title": "Chapter 28",
+          "pages": []
+        },
+        {
+          "slug": "chapter-29",
+          "title": "Chapter 29",
+          "pages": []
+        },
+        {
+          "slug": "chapter-30",
+          "title": "Chapter 30",
+          "pages": []
+        },
+        {
+          "slug": "epilogue",
+          "title": "Epilogue",
+          "pages": []
+        }
+      ]
+    },
+    {
+      "slug": "le-monstre-social",
+      "title": "Le Monstre Social",
+      "status": "coming-soon",
+      "description": "Set 50 years after The Vale of Wales, a werewolf detective in Paris, France teams up with a team of fellow monsters to protect humanity from the formidable Mademoiselle Croque and her boogiemen and women.",
+      "cover": null,
+      "chapters": []
+    },
+    {
+      "slug": "the-war-dolls",
+      "title": "The War Dolls",
+      "status": "coming-soon",
+      "description": "Pursued by a malignant rat and his gang of cronies, a pair of talking dolls must survive the horrors of the Apocalypse.",
+      "cover": null,
+      "chapters": []
+    }
+  ]
+}

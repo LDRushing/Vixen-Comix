@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" role="img" aria-labelledby="t">
+  <title id="t">Coming soon</title>
+  <rect width="600" height="600" fill="#ffe37d"/>
+  <rect x="24" y="24" width="552" height="552" rx="28" fill="none" stroke="#006b40" stroke-width="8"/>
+  <text x="300" y="285" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="68" font-weight="700" fill="#006b40">Coming</text>
+  <text x="300" y="365" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="68" font-weight="700" fill="#006b40">soon</text>
+</svg>
