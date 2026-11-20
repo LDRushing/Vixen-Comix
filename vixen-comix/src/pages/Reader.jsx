@@ -1,11 +1,15 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { toast } from "react-toastify";
+import { useAuth } from "../auth/AuthContext.jsx";
+import { useReading } from "../auth/ReadingContext.jsx";
 import { useCatalog } from "../catalog/CatalogContext.jsx";
 import { findComic, getPage, getPrevNext, parsePageSlug, readerPath } from "../lib/comics.js";
 import NotFound from "./NotFound.jsx";
 import Panel from "./Panel.jsx";
 
 const MISSING_IMAGE = "/placeholders/page-missing.svg";
+const HISTORY_DELAY_MS = 1500;
 
 export default function Reader() {
   const { comicSlug, chapterSlug, pageSlug } = useParams();
@@ -17,6 +21,24 @@ export default function Reader() {
   const page = comic && !comingSoon ? getPage(comic, chapterSlug, pageNum) : null;
   const { prev, next } = page ? getPrevNext(comic, chapterSlug, pageNum) : { prev: null, next: null };
   const nextImage = next ? getPage(comic, next.chapterSlug, next.pageNum)?.path : null;
+
+  const { available, loading: authLoading, user } = useAuth();
+  const { bookmarkFor, saveSpot, recordPage } = useReading();
+  const [saving, setSaving] = useState(false);
+  const userId = user?.id ?? null;
+  const hasPage = Boolean(page);
+  const readingSlug = comic?.slug ?? null;
+
+  // Record the page in the reader's history once it has been on screen for a
+  // moment. Turning pages quickly writes nothing; the timer is cleared on every
+  // page change and when the reader leaves.
+  useEffect(() => {
+    if (!userId || !hasPage || !readingSlug) return undefined;
+    const timer = setTimeout(() => {
+      recordPage({ comicSlug: readingSlug, chapterSlug, page: pageNum });
+    }, HISTORY_DELAY_MS);
+    return () => clearTimeout(timer);
+  }, [userId, hasPage, readingSlug, chapterSlug, pageNum, recordPage]);
 
   // Start each page at the top (the Next button sits below the image).
   useEffect(() => {
@@ -57,6 +79,38 @@ export default function Reader() {
   }
 
   const isFirstPage = !prev;
+  const currentPath = readerPath(comic.slug, chapterSlug, pageNum);
+  const savedSpot = bookmarkFor(comic.slug);
+  const spotIsHere = Boolean(savedSpot) && savedSpot.chapterSlug === chapterSlug && savedSpot.page === pageNum;
+
+  async function handleSave() {
+    if (saving) return;
+    setSaving(true);
+    const saved = await saveSpot({ comicSlug: comic.slug, chapterSlug, page: pageNum });
+    if (saved) toast.success(`Spot saved: ${page.title}`);
+    setSaving(false);
+  }
+
+  let saveControl = null;
+  if (!available) {
+    saveControl = (
+      <button type="button" className="hub-btn" disabled>
+        Sign-in unavailable
+      </button>
+    );
+  } else if (!authLoading && !user) {
+    saveControl = (
+      <Link to={`/login?next=${currentPath}`} className="hub-btn">
+        Log in to save your spot
+      </Link>
+    );
+  } else if (user) {
+    saveControl = (
+      <button type="button" className="hub-btn" onClick={handleSave} disabled={saving}>
+        {spotIsHere ? "Spot saved" : "Save my spot"}
+      </button>
+    );
+  }
 
   return (
     <div className="reader">
@@ -78,6 +132,8 @@ export default function Reader() {
           }}
         />
       </div>
+
+      {saveControl && <div className="reader-save">{saveControl}</div>}
 
       <div className="comic-nav-container">
         {prev ? (

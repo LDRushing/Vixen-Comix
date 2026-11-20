@@ -314,6 +314,288 @@
   object-fit: cover;
 }
 
+/* ---- Buttons that are real <button> elements ---- */
+button.hub-btn {
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.hub-btn:disabled {
+  background-color: #6b7280;
+  color: #ffffff;
+  cursor: not-allowed;
+  opacity: 0.85;
+}
+
+.hub-btn:disabled:hover {
+  background-color: #6b7280;
+  border-color: transparent;
+}
+
+/* ---- Reader: save my spot ---- */
+.reader-save {
+  display: flex;
+  justify-content: center;
+  margin: 1.25rem 0 0;
+}
+
+/* ---- Login / register / reset password ---- */
+.auth-card {
+  width: calc(100% - 2rem);
+  max-width: 460px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-top: 4px solid #006b40;
+  border-radius: 12px;
+  text-align: left;
+  line-height: 1.5;
+}
+
+.auth-card .hub-title {
+  margin-bottom: 0.25rem;
+}
+
+.auth-intro {
+  margin: 0 0 1rem;
+  color: #1a1a1a;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.auth-fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.auth-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.auth-field input {
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 1rem;
+  padding: 10px;
+}
+
+.auth-field input:disabled {
+  background-color: #f3f4f6;
+  color: #6b7280;
+}
+
+.auth-google {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 16px;
+  font: inherit;
+  font-weight: 600;
+  color: #1a1a1a;
+  background-color: #ffffff;
+  border: 2px solid #006b40;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.auth-google:hover:not(:disabled) {
+  background-color: #fffbe8;
+}
+
+.auth-google:disabled {
+  color: #6b7280;
+  border-color: #9ca3af;
+  cursor: not-allowed;
+}
+
+.auth-divider {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0;
+  color: #4b5563;
+  font-size: 0.9rem;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background-color: #d1d5db;
+}
+
+.auth-submit {
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.auth-linklike {
+  align-self: center;
+  padding: 0;
+  font: inherit;
+  color: #006b40;
+  background: none;
+  border: 0;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.auth-linklike:disabled {
+  color: #6b7280;
+  cursor: not-allowed;
+}
+
+.auth-switch {
+  margin: 1.25rem 0 0;
+  text-align: center;
+}
+
+.auth-message {
+  margin: 0;
+  padding: 0.6rem 0.8rem;
+  border-radius: 8px;
+  border: 1px solid;
+}
+
+.auth-message-error {
+  color: #7f1d1d;
+  background-color: #fef2f2;
+  border-color: #fca5a5;
+}
+
+.auth-message-ok {
+  color: #064e3b;
+  background-color: #ecfdf5;
+  border-color: #6ee7b7;
+}
+
+.auth-message-warn {
+  margin-bottom: 1rem;
+  color: #78350f;
+  background-color: #fffbeb;
+  border-color: #fcd34d;
+}
+
+/* ---- Continue reading ---- */
+.continue-empty {
+  margin: 0 0 1rem;
+  color: #1a1a1a;
+}
+
+.continue-list,
+.recent-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.continue-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.continue-card {
+  display: flex;
+  gap: 1rem;
+  padding: 0.75rem;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+}
+
+.continue-cover {
+  flex: 0 0 96px;
+  width: 96px;
+  height: 96px;
+  object-fit: cover;
+  border-radius: 6px;
+  background-color: #f3f4f6;
+}
+
+.continue-body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+  min-width: 0;
+  text-align: left;
+}
+
+.continue-title {
+  margin: 0;
+  font-size: 1.15rem;
+  color: #006b40;
+}
+
+.continue-where {
+  margin: 0;
+  font-weight: 600;
+}
+
+.continue-date {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #4b5563;
+}
+
+.recent-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.5rem;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  text-align: left;
+}
+
+.recent-item > div {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.recent-title {
+  font-weight: 700;
+  color: #006b40;
+}
+
+/* Keep one or two saved spots card-sized instead of stretching across the page. */
+.home-continue .home-comic-grid {
+  grid-template-columns: repeat(auto-fill, minmax(200px, 240px));
+  justify-content: center;
+}
+
+.home-continue-where {
+  font-size: 0.9rem;
+  color: #1a1a1a;
+}
+
 /* ---- Small screens ---- */
 @media (max-width: 700px) {
   .comic-card {

@@ -1,6 +1,7 @@
 import React from "react";
 import { useParams, Link } from "react-router-dom";
 import { useCatalog } from "./catalog/CatalogContext.jsx";
+import { useReading } from "./auth/ReadingContext.jsx";
 import { findComic, firstPagePath } from "./lib/comics.js";
 import NotFound from "./pages/NotFound.jsx";
 import Panel from "./pages/Panel.jsx";
@@ -10,6 +11,7 @@ const COMING_SOON_COVER = "/placeholders/coming-soon.svg";
 export default function ComicTOC() {
   const { slug } = useParams();
   const { status, catalog } = useCatalog();
+  const { bookmarkFor } = useReading();
 
   if (status === "loading") return <Panel>Loading comic...</Panel>;
   if (status === "error") {
@@ -21,6 +23,7 @@ export default function ComicTOC() {
     return <NotFound title="Comic not found" message="That comic doesn't exist." />;
   }
   const comingSoon = comic.status === "coming-soon";
+  const savedSpot = comingSoon ? null : bookmarkFor(comic.slug);
 
   return (
     <div className="hub-page">
@@ -33,6 +36,11 @@ export default function ComicTOC() {
       />
       {comingSoon && <p><span className="badge-soon">Coming soon</span></p>}
       <p className="toc-description">{comic.description}</p>
+      {savedSpot && (
+        <p>
+          <Link to={savedSpot.path} className="hub-btn">Continue: {savedSpot.label}</Link>
+        </p>
+      )}
       {comic.externalUrl && (
         <p>
           <a href={comic.externalUrl} target="_blank" rel="noreferrer" className="hub-link">

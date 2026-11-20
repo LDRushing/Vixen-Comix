@@ -13,6 +13,12 @@ import Prints from "./Prints";
 import Film from "./Film";
 import Contact from "./Contact";
 import Reader from "./pages/Reader";
+import Login from "./pages/Login";
+import ResetPassword from "./pages/ResetPassword";
+import ContinueReading from "./pages/ContinueReading";
+import AuthNav from "./auth/AuthNav";
+import { AuthProvider } from "./auth/AuthContext";
+import { ReadingProvider } from "./auth/ReadingContext";
 import { CatalogProvider } from "./catalog/CatalogContext";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -24,6 +30,8 @@ function App() {
   return (
     <Router>
       <CatalogProvider>
+      <AuthProvider>
+      <ReadingProvider>
         <div className="min-h-screen bg-gray-100 flex flex-col">
           {/* Header Section */}
           <header className="art-header relative overflow-hidden">
@@ -45,6 +53,7 @@ function App() {
                 <Link to="/film" className="nav-button">Film</Link>
                 <Link to="/contact" className="nav-button">Contact</Link>
               </div>
+              <AuthNav />
             </div>
           </nav>
 
@@ -55,6 +64,11 @@ function App() {
               <Route path="/bio" element={<Bio />} />
               <Route path="/comics" element={<Comics />} />
               <Route path="/comics/:slug" element={<ComicTOC />} />
+              <Route path="/login" element={<Login mode="login" />} />
+              <Route path="/register" element={<Login mode="register" />} />
+              <Route path="/reset-password" element={<ResetPassword />} />
+              <Route path="/continue-reading" element={<ContinueReading />} />
+              <Route path="/home" element={<Navigate to="/continue-reading" replace />} />
               <Route path="/:comicSlug/:chapterSlug/:pageSlug" element={<Reader />} />
               <Route path="/prints" element={<Prints />} />
               <Route path="/film" element={<Film />} />
@@ -78,6 +92,8 @@ function App() {
             </div>
           </footer>
         </div>
+      </ReadingProvider>
+      </AuthProvider>
       </CatalogProvider>
     </Router>
   );
